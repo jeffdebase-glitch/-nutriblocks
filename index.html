@@ -1,1 +1,1129 @@
-1
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<title>NutriBlocks</title>
+
+<!-- PWA / iPhone home screen icon -->
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj4KICA8IS0tIEJhY2tncm91bmQgLS0+CiAgPHJlY3Qgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxODAiIHJ4PSI0MCIgZmlsbD0iIzFBN0VGNSIvPgogIAogIDwhLS0gVGV0cmlzLWxpa2UgYmxvY2tzIC0tPgogIDwhLS0gVG9wLWxlZnQgYmxvY2sgKHByb3RlaW4gYmx1ZSkgLS0+CiAgPHJlY3QgeD0iMjIiIHk9IjIyIiB3aWR0aD0iNTYiIGhlaWdodD0iNTYiIHJ4PSIxMiIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuOTUiLz4KICA8IS0tIFRvcC1yaWdodCBibG9jayAoY2FyYnMgdGVhbCkgLS0+CiAgPHJlY3QgeD0iMTAyIiB5PSIyMiIgd2lkdGg9IjU2IiBoZWlnaHQ9IjU2IiByeD0iMTIiIGZpbGw9IiMyN0I4OTkiIG9wYWNpdHk9IjAuOTUiLz4KICA8IS0tIEJvdHRvbS1sZWZ0IGJsb2NrIChmYXQgb3JhbmdlKSAtLT4KICA8cmVjdCB4PSIyMiIgeT0iMTAyIiB3aWR0aD0iNTYiIGhlaWdodD0iNTYiIHJ4PSIxMiIgZmlsbD0iI0Y1OTIxQSIgb3BhY2l0eT0iMC45NSIvPgogIDwhLS0gQm90dG9tLXJpZ2h0IGJsb2NrIChjb21ibykgLS0+CiAgPHJlY3QgeD0iMTAyIiB5PSIxMDIiIHdpZHRoPSI1NiIgaGVpZ2h0PSI1NiIgcng9IjEyIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC4zIi8+CiAgCiAgPCEtLSBQIGxldHRlciBpbiB0b3AtbGVmdCAtLT4KICA8dGV4dCB4PSI1MCIgeT0iNjMiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksLWFwcGxlLXN5c3RlbSxzYW5zLXNlcmlmIiBmb250LXNpemU9IjMyIiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSIjMUE3RUY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5QPC90ZXh0PgogIDwhLS0gRyBpbiB0b3AtcmlnaHQgLS0+CiAgPHRleHQgeD0iMTMwIiB5PSI2MyIgZm9udC1mYW1pbHk9InN5c3RlbS11aSwtYXBwbGUtc3lzdGVtLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzIiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5HPC90ZXh0PgogIDwhLS0gTCBpbiBib3R0b20tbGVmdCAtLT4KICA8dGV4dCB4PSI1MCIgeT0iMTQzIiBmb250LWZhbWlseT0ic3lzdGVtLXVpLC1hcHBsZS1zeXN0ZW0sc2Fucy1zZXJpZiIgZm9udC1zaXplPSIzMiIgZm9udC13ZWlnaHQ9IjkwMCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkw8L3RleHQ+CiAgPCEtLSBsaWdodG5pbmcgYm9sdCBib3R0b20tcmlnaHQgLS0+CiAgPHRleHQgeD0iMTMwIiB5PSIxNDMiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksLWFwcGxlLXN5c3RlbSxzYW5zLXNlcmlmIiBmb250LXNpemU9IjM0IiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC43IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7imqE8L3RleHQ+Cjwvc3ZnPg=="/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj4KICA8IS0tIEJhY2tncm91bmQgLS0+CiAgPHJlY3Qgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxODAiIHJ4PSI0MCIgZmlsbD0iIzFBN0VGNSIvPgogIAogIDwhLS0gVGV0cmlzLWxpa2UgYmxvY2tzIC0tPgogIDwhLS0gVG9wLWxlZnQgYmxvY2sgKHByb3RlaW4gYmx1ZSkgLS0+CiAgPHJlY3QgeD0iMjIiIHk9IjIyIiB3aWR0aD0iNTYiIGhlaWdodD0iNTYiIHJ4PSIxMiIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuOTUiLz4KICA8IS0tIFRvcC1yaWdodCBibG9jayAoY2FyYnMgdGVhbCkgLS0+CiAgPHJlY3QgeD0iMTAyIiB5PSIyMiIgd2lkdGg9IjU2IiBoZWlnaHQ9IjU2IiByeD0iMTIiIGZpbGw9IiMyN0I4OTkiIG9wYWNpdHk9IjAuOTUiLz4KICA8IS0tIEJvdHRvbS1sZWZ0IGJsb2NrIChmYXQgb3JhbmdlKSAtLT4KICA8cmVjdCB4PSIyMiIgeT0iMTAyIiB3aWR0aD0iNTYiIGhlaWdodD0iNTYiIHJ4PSIxMiIgZmlsbD0iI0Y1OTIxQSIgb3BhY2l0eT0iMC45NSIvPgogIDwhLS0gQm90dG9tLXJpZ2h0IGJsb2NrIChjb21ibykgLS0+CiAgPHJlY3QgeD0iMTAyIiB5PSIxMDIiIHdpZHRoPSI1NiIgaGVpZ2h0PSI1NiIgcng9IjEyIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC4zIi8+CiAgCiAgPCEtLSBQIGxldHRlciBpbiB0b3AtbGVmdCAtLT4KICA8dGV4dCB4PSI1MCIgeT0iNjMiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksLWFwcGxlLXN5c3RlbSxzYW5zLXNlcmlmIiBmb250LXNpemU9IjMyIiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSIjMUE3RUY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5QPC90ZXh0PgogIDwhLS0gRyBpbiB0b3AtcmlnaHQgLS0+CiAgPHRleHQgeD0iMTMwIiB5PSI2MyIgZm9udC1mYW1pbHk9InN5c3RlbS11aSwtYXBwbGUtc3lzdGVtLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzIiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5HPC90ZXh0PgogIDwhLS0gTCBpbiBib3R0b20tbGVmdCAtLT4KICA8dGV4dCB4PSI1MCIgeT0iMTQzIiBmb250LWZhbWlseT0ic3lzdGVtLXVpLC1hcHBsZS1zeXN0ZW0sc2Fucy1zZXJpZiIgZm9udC1zaXplPSIzMiIgZm9udC13ZWlnaHQ9IjkwMCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkw8L3RleHQ+CiAgPCEtLSBsaWdodG5pbmcgYm9sdCBib3R0b20tcmlnaHQgLS0+CiAgPHRleHQgeD0iMTMwIiB5PSIxNDMiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksLWFwcGxlLXN5c3RlbSxzYW5zLXNlcmlmIiBmb250LXNpemU9IjM0IiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC43IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7imqE8L3RleHQ+Cjwvc3ZnPg=="/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<meta name="apple-mobile-web-app-title" content="NutriBlocks"/>
+<meta name="theme-color" content="#1A7EF5"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+/* ── RESET & TOKENS ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #F0F2F5;
+  --card: #FFFFFF;
+  --blue: #1A7EF5;
+  --blue-dim: rgba(26,126,245,0.12);
+  --teal: #27B899;
+  --orange: #F5921A;
+  --red: #F03A2E;
+  --red-soft: #FEE8E7;
+  --text: #0A0F1A;
+  --text-2: #4A5568;
+  --text-3: #A0AABA;
+  --border: #EAECF0;
+  --shadow: 0 2px 16px rgba(0,0,0,0.07), 0 0 0 1px rgba(0,0,0,0.04);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04);
+  --r: 20px;
+  --r-sm: 12px;
+}
+html, body { background: var(--bg); min-height: 100vh; }
+body {
+  font-family: -apple-system, 'Inter', sans-serif;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+}
+.app { max-width: 430px; margin: 0 auto; min-height: 100vh; padding-bottom: 96px; }
+.hidden { display: none !important; }
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+/* ── HEADER ── */
+.header {
+  background: var(--card);
+  padding: 56px 20px 18px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-left h1 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text);
+}
+.header-left p { font-size: 13px; color: var(--text-3); margin-top: 2px; font-weight: 500; }
+.gear-btn {
+  width: 40px; height: 40px;
+  background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; flex-shrink: 0; transition: all .15s;
+}
+.gear-btn:active { background: var(--blue-dim); border-color: var(--blue); }
+.gear-btn svg { transition: transform .5s cubic-bezier(.34,1.56,.64,1); }
+.gear-btn:active svg { transform: rotate(90deg); }
+
+/* ── SOURCE SWITCHER ── */
+.switcher-wrap {
+  padding: 14px 16px 0;
+  display: flex; align-items: center; gap: 10px;
+}
+.switcher-pill {
+  display: inline-flex; align-items: center;
+  background: var(--card); border-radius: 99px;
+  padding: 3px; border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.src-btn {
+  padding: 7px 15px; border-radius: 99px; border: none;
+  background: transparent; font-family: inherit; font-size: 13px; font-weight: 700;
+  color: var(--text-3); cursor: pointer; transition: all .18s; white-space: nowrap;
+  line-height: 1; -webkit-tap-highlight-color: transparent;
+}
+.src-btn.active { background: var(--blue); color: white; box-shadow: 0 2px 10px rgba(26,126,245,.32); }
+.sync-indicator {
+  width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; background: var(--text-3); transition: background .3s;
+}
+.sync-indicator.ok { background: var(--teal); }
+.sync-indicator.loading { background: var(--orange); animation: pulse 1s infinite; }
+.sync-indicator.error { background: var(--red); }
+.sync-indicator.nosheet { background: var(--text-3); }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+/* ── SEC LABEL ── */
+.sec-lbl {
+  font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--text-3);
+  padding: 20px 20px 10px;
+}
+
+/* ── MACRO INPUTS ── */
+.inputs-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; padding: 0 16px; margin-bottom: 6px; }
+.inp-card {
+  background: var(--card); border-radius: var(--r); box-shadow: var(--shadow);
+  padding: 14px 14px 12px; position: relative; overflow: hidden;
+  transition: box-shadow .2s;
+}
+.inp-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  border-radius: 0 0 4px 4px; opacity: 0; transition: opacity .2s;
+}
+.inp-card:focus-within { box-shadow: var(--shadow-lg); }
+.inp-card:focus-within::after { opacity: 1; }
+.inp-card.p::after { background: var(--blue); }
+.inp-card.c::after { background: var(--teal); }
+.inp-card.f::after { background: var(--orange); }
+.inp-card label {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+  color: var(--text-3); margin-bottom: 8px;
+}
+.dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.inp-card input[type=number] {
+  width: 100%; background: none; border: none; outline: none;
+  font-family: inherit; font-size: 28px; font-weight: 800; color: var(--text);
+  line-height: 1; -moz-appearance: textfield;
+}
+.inp-card input[type=number]::-webkit-outer-spin-button,
+.inp-card input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
+.inp-card .unit { position: absolute; right: 11px; bottom: 12px; font-size: 11px; font-weight: 600; color: var(--text-3); }
+.inputs-hint { padding: 4px 20px 14px; font-size: 11px; color: var(--text-3); font-weight: 500; }
+.inputs-hint b { color: var(--blue); font-weight: 700; }
+
+/* ── ADVANCED ── */
+.adv-toggle {
+  background: none; border: none; cursor: pointer; font-family: inherit;
+  font-size: 12px; font-weight: 600; color: var(--text-3);
+  display: flex; align-items: center; gap: 5px; margin: 0 16px 10px; padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+.adv-panel { margin: 0 16px 14px; background: var(--card); border-radius: 16px; padding: 14px; box-shadow: var(--shadow); }
+.adv-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.adv-row:last-child { margin-bottom: 0; }
+.adv-lbl { font-size: 12px; font-weight: 600; color: var(--text-2); }
+.adv-lbl small { font-size: 10px; color: var(--text-3); display: block; }
+.tol-group { display: flex; align-items: center; gap: 8px; }
+.tol-btn {
+  width: 30px; height: 30px; border-radius: 9px; background: var(--bg);
+  border: 1.5px solid var(--border); font-size: 18px; font-weight: 700;
+  color: var(--text-2); cursor: pointer; display: flex; align-items: center;
+  justify-content: center; line-height: 1; -webkit-tap-highlight-color: transparent;
+  transition: background .1s;
+}
+.tol-btn:active { background: var(--blue-dim); border-color: var(--blue); }
+.tol-val { font-size: 15px; font-weight: 800; color: var(--blue); min-width: 22px; text-align: center; }
+
+/* ── CTA ── */
+.cta {
+  margin: 0 16px 20px;
+  background: var(--blue); color: white; border: none; border-radius: 16px;
+  width: calc(100% - 32px); padding: 18px;
+  font-family: inherit; font-size: 16px; font-weight: 700; letter-spacing: -.2px;
+  cursor: pointer; box-shadow: 0 4px 20px rgba(26,126,245,.38);
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  transition: transform .12s, box-shadow .12s, opacity .2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.cta:active { transform: scale(.98); box-shadow: 0 2px 10px rgba(26,126,245,.35); }
+.cta:disabled { opacity: .6; cursor: not-allowed; }
+.spin {
+  width: 18px; height: 18px; border: 2.5px solid rgba(255,255,255,.4);
+  border-top-color: white; border-radius: 50%; animation: rot .7s linear infinite;
+  display: inline-block; flex-shrink: 0;
+}
+@keyframes rot { to { transform: rotate(360deg); } }
+
+/* ── RESULTS ── */
+.results-wrap { padding: 0 16px; display: flex; flex-direction: column; gap: 14px; }
+
+/* ── RESULT CARD — style mockup ── */
+.res-card {
+  background: var(--card);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  animation: cardUp .4s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes cardUp { from { opacity:0; transform:translateY(18px) scale(.98); } to { opacity:1; transform:none; } }
+.res-card:nth-child(1){animation-delay:.04s}
+.res-card:nth-child(2){animation-delay:.10s}
+.res-card:nth-child(3){animation-delay:.16s}
+.res-card:nth-child(4){animation-delay:.22s}
+.res-card:nth-child(5){animation-delay:.28s}
+
+.res-body { padding: 20px 20px 18px; }
+
+/* Title row */
+.res-title-row {
+  text-align: center;
+  font-size: 17px; font-weight: 800; letter-spacing: -.3px;
+  margin-bottom: 18px;
+  color: var(--text);
+}
+
+/* Score ring + kcal row */
+.res-hero {
+  display: flex; align-items: center; justify-content: center;
+  gap: 28px; margin-bottom: 22px;
+}
+
+/* SVG RING */
+.ring-wrap { position: relative; width: 120px; height: 120px; flex-shrink: 0; }
+.ring-wrap svg { transform: rotate(-90deg); }
+.ring-bg { fill: none; stroke: var(--bg); stroke-width: 9; }
+.ring-fg {
+  fill: none; stroke: var(--blue); stroke-width: 9;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s cubic-bezier(.22,1,.36,1);
+}
+.ring-label {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 1px;
+}
+.ring-match { font-size: 9px; font-weight: 700; letter-spacing: .1em; color: var(--text-3); text-transform: uppercase; }
+.ring-pct { font-size: 21px; font-weight: 900; color: var(--blue); letter-spacing: -.5px; line-height: 1; }
+
+/* kcal */
+.res-kcal-wrap { text-align: left; }
+.res-kcal-num { font-size: 52px; font-weight: 900; color: var(--text); letter-spacing: -2px; line-height: 1; }
+.res-kcal-lbl { font-size: 14px; font-weight: 600; color: var(--text-3); margin-top: 2px; }
+
+/* Ingredients list */
+.res-ing-list {
+  border-top: 1px solid var(--border);
+  padding-top: 16px; margin-bottom: 16px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.res-ing-row { font-size: 15px; font-weight: 500; color: var(--text); line-height: 1.4; }
+.res-ing-row .qty { font-weight: 800; color: var(--text); }
+.res-ing-row .ing-kcal { color: var(--text-3); font-weight: 500; }
+
+/* Macro pills bottom */
+.res-macros {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+.m-col { text-align: center; }
+.m-val { font-size: 17px; font-weight: 800; color: var(--text); letter-spacing: -.5px; }
+.m-lbl { font-size: 11px; font-weight: 600; color: var(--text-3); margin-top: 2px; }
+.m-delta { font-size: 11px; font-weight: 700; margin-top: 3px; }
+.m-nc { font-size: 10px; color: var(--text-3); margin-top: 3px; font-weight: 500; }
+.dok { color: #27B899; }
+.dwarn { color: var(--orange); }
+
+/* ── EMPTY ── */
+.empty-card {
+  background: var(--card); border-radius: var(--r); box-shadow: var(--shadow);
+  margin: 0 16px; padding: 48px 20px; text-align: center;
+}
+.empty-card .ico { font-size: 40px; margin-bottom: 12px; }
+.empty-card p { font-size: 16px; font-weight: 700; color: var(--text-2); }
+.empty-card span { font-size: 13px; color: var(--text-3); display: block; margin-top: 5px; }
+
+/* ── MODAL ── */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(10,15,26,.5);
+  z-index: 100; display: flex; align-items: flex-end;
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+}
+.modal-sheet {
+  background: var(--card); border-radius: 24px 24px 0 0;
+  width: 100%; max-width: 430px; margin: 0 auto;
+  max-height: 92vh; display: flex; flex-direction: column;
+  box-shadow: 0 -4px 40px rgba(0,0,0,.14);
+}
+.modal-header { padding: 20px 20px 14px; border-bottom: 1px solid var(--border); flex-shrink: 0; position: relative; }
+.modal-header h2 { font-size: 18px; font-weight: 800; letter-spacing: -.3px; padding-right: 40px; }
+.modal-header p { font-size: 12px; color: var(--text-3); margin-top: 3px; }
+.modal-close {
+  position: absolute; right: 18px; top: 18px;
+  background: var(--bg); border: 1px solid var(--border); border-radius: 50%;
+  width: 32px; height: 32px; cursor: pointer; font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: inherit; color: var(--text-2); -webkit-tap-highlight-color: transparent;
+}
+.modal-body { flex: 1; overflow-y: auto; padding: 12px 16px 4px; }
+.modal-footer { padding: 12px 16px 32px; border-top: 1px solid var(--border); flex-shrink: 0; display: flex; gap: 8px; }
+
+/* SYNC BANNER */
+.sync-banner { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 12px; margin-bottom: 12px; font-size: 12px; font-weight: 600; }
+.sync-banner.nosheet { background: #EEF4FF; color: var(--blue); }
+.sync-banner.error { background: var(--red-soft); color: var(--red); }
+
+/* INGREDIENT ITEMS */
+.ingr-item { display: flex; align-items: center; gap: 8px; padding: 10px 12px; background: var(--bg); border-radius: var(--r-sm); margin-bottom: 8px; transition: all .15s; }
+.ingr-item.editing { background: #EEF4FF; border: 1.5px solid var(--blue); }
+.ingr-info { flex: 1; min-width: 0; }
+.ingr-name { font-size: 13px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ingr-macros { font-size: 10px; color: var(--text-3); margin-top: 2px; }
+.ingr-edit-btn { background: #EEF4FF; color: var(--blue); border: none; border-radius: 8px; padding: 6px 11px; font-size: 12px; font-weight: 700; cursor: pointer; flex-shrink: 0; font-family: inherit; }
+.ingr-del-btn { background: var(--red-soft); color: var(--red); border: none; border-radius: 8px; padding: 6px 9px; font-size: 13px; cursor: pointer; flex-shrink: 0; }
+
+/* FORM */
+.add-form { background: var(--bg); border-radius: 14px; padding: 16px; margin-top: 8px; border: 1.5px dashed var(--border); }
+.add-form h3 { font-size: 13px; font-weight: 800; margin-bottom: 12px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.form-field label { display: block; font-size: 10px; font-weight: 700; color: var(--text-3); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 4px; }
+.form-field input { width: 100%; background: var(--card); border: 1.5px solid var(--border); border-radius: 10px; padding: 9px 10px; font-family: inherit; font-size: 13px; font-weight: 600; color: var(--text); outline: none; transition: border-color .2s; }
+.form-field input:focus { border-color: var(--blue); }
+.form-field.span2 { grid-column: span 2; }
+.btn-add-item { background: var(--teal); color: white; border: none; border-radius: 12px; padding: 12px; width: 100%; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 6px; -webkit-tap-highlight-color: transparent; }
+.btn-add-item:disabled { opacity: .6; cursor: not-allowed; }
+.btn-primary { background: var(--blue); color: white; border: none; border-radius: 12px; padding: 13px 16px; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.btn-secondary { background: var(--bg); color: var(--text-2); border: 1.5px solid var(--border); border-radius: 12px; padding: 13px 16px; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+
+/* TOAST */
+.toast {
+  position: fixed; bottom: 36px; left: 50%;
+  transform: translateX(-50%) translateY(16px);
+  background: rgba(10,15,26,.88); color: white;
+  padding: 10px 20px; border-radius: 20px;
+  font-size: 13px; font-weight: 600;
+  opacity: 0; transition: all .25s; z-index: 999;
+  white-space: nowrap; pointer-events: none;
+  backdrop-filter: blur(8px);
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <h1>NutriBlocks</h1>
+      <p>Complète tes macros de fin de journée</p>
+    </div>
+    <button class="gear-btn" id="gear-btn" onclick="openModal()">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--text-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- SOURCE SWITCHER -->
+  <div class="switcher-wrap">
+    <div class="switcher-pill">
+      <button class="src-btn active" id="src-perso" onclick="switchSource('perso')">⭐ Ma liste</button>
+      <button class="src-btn" id="src-ciqual" onclick="switchSource('ciqual')">🏛️ CIQUAL 2025</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:5px" id="sync-status-wrap">
+      <span class="sync-indicator nosheet" id="sync-dot"></span>
+      <span style="font-size:11px;font-weight:600;color:var(--text-3)" id="sync-txt">—</span>
+    </div>
+  </div>
+
+  <!-- MACROS -->
+  <p class="sec-lbl">Ce qu'il me manque</p>
+  <div class="inputs-row">
+    <div class="inp-card p">
+      <label><span class="dot" style="background:var(--blue)"></span>Protéines</label>
+      <input id="ip" type="number" min="0" max="500" placeholder="—"/>
+      <span class="unit">g</span>
+    </div>
+    <div class="inp-card c">
+      <label><span class="dot" style="background:var(--teal)"></span>Glucides</label>
+      <input id="ig" type="number" min="0" max="600" placeholder="—"/>
+      <span class="unit">g</span>
+    </div>
+    <div class="inp-card f">
+      <label><span class="dot" style="background:var(--orange)"></span>Lipides</label>
+      <input id="il" type="number" min="0" max="300" placeholder="—"/>
+      <span class="unit">g</span>
+    </div>
+  </div>
+  <p class="inputs-hint">Laisse un champ <b>vide</b> = pas de contrainte</p>
+
+  <!-- ADVANCED -->
+  <button class="adv-toggle" onclick="toggleAdv()">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 0 0 4.93 19.07M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+    Paramètres avancés
+  </button>
+  <div id="adv-panel" class="adv-panel hidden">
+    <div class="adv-row">
+      <div class="adv-lbl">Tolérance <small>±g acceptés sur chaque macro</small></div>
+      <div class="tol-group">
+        <button class="tol-btn" onclick="changeTol('t',-1)">−</button>
+        <span class="tol-val" id="tol-t">5</span>
+        <button class="tol-btn" onclick="changeTol('t',1)">+</button>
+      </div>
+    </div>
+    <div class="adv-row">
+      <div class="adv-lbl">Max aliments différents <small>dans une combinaison</small></div>
+      <div class="tol-group">
+        <button class="tol-btn" onclick="changeTol('d',-1)">−</button>
+        <span class="tol-val" id="tol-d">3</span>
+        <button class="tol-btn" onclick="changeTol('d',1)">+</button>
+      </div>
+    </div>
+    <div style="padding:8px 2px 0;font-size:11px;color:var(--text-3);line-height:1.5">
+      💡 Les portions sont calculées automatiquement selon ta cible.
+    </div>
+  </div>
+
+  <!-- GENERATE -->
+  <button id="cta" class="cta" onclick="generate()">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    Générer mes repas
+  </button>
+
+  <!-- RESULTS -->
+  <p class="sec-lbl hidden" id="res-lbl">Résultats</p>
+  <div id="results-wrap" class="results-wrap"></div>
+  <div id="empty" class="empty-card hidden">
+    <div class="ico">🔍</div>
+    <p>Aucune combinaison trouvée</p>
+    <span>Augmente la tolérance dans les paramètres avancés.</span>
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal-overlay" class="modal-overlay hidden" onclick="closeModalOutside(event)">
+  <div class="modal-sheet">
+    <div class="modal-header">
+      <h2>⭐ Ma liste perso</h2>
+      <p id="modal-subtitle">Chargement…</p>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-footer">
+      <button class="btn-secondary" style="flex:1" onclick="closeModal()">Fermer</button>
+      <button class="btn-primary" style="flex:2" onclick="reloadFromSheet()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        Recharger Sheet
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ══════════════════════════════════════════════════════════════
+//  ⚙️  CONFIGURATION — Colle tes URLs ici
+// ══════════════════════════════════════════════════════════════
+const CONFIG = {
+  SHEET_CSV_URL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSSgS2ZSSrtPJm7AqL3uCdqftPbU0j9lVw68T_N7lq-lVQcTYTPPmAxceJ-Q5jkoGrebCsSP50RBURf/pub?gid=0&single=true&output=csv",       // URL CSV publié (lecture)
+  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbw8dy8gUqtmWLYJR1TY1UuCP-310sFnCfy6R59p5e1RFqvumK-1ptlwaqjdpX5g9NWn/exec",     // URL Apps Script déployé (écriture)
+};
+
+// ══════════════════════════════════════════════════════════════
+//  LISTE PERSO PAR DÉFAUT
+// ══════════════════════════════════════════════════════════════
+const PERSO_DEFAULT = [
+  {nom:"Blanc de poulet (cru)",     portion:130, p:30,   g:0,    l:1.3,  kcal:131},
+  {nom:"Skyr 0% (Danone)",          portion:273, p:30,   g:10.9, l:0.3,  kcal:167},
+  {nom:"Fromage blanc 0%",          portion:400, p:30,   g:14.0, l:0.4,  kcal:180},
+  {nom:"Whey Isolat",               portion:33,  p:30,   g:1.0,  l:0.5,  kcal:127},
+  {nom:"Blancs d'œufs (crus)",      portion:278, p:30,   g:1.9,  l:0.6,  kcal:131},
+  {nom:"Dinde (crue)",              portion:136, p:30,   g:0,    l:1.4,  kcal:133},
+  {nom:"Flocons d'avoine",          portion:67,  p:8.7,  g:40.2, l:4.7,  kcal:241},
+  {nom:"Farine d'avoine",           portion:65,  p:8.1,  g:40.3, l:4.5,  kcal:235},
+  {nom:"Pâtes (crues, sèches)",     portion:56,  p:7.3,  g:40.3, l:0.8,  kcal:197},
+  {nom:"Riz thaï (cru, sec)",       portion:51,  p:3.8,  g:40.3, l:0.3,  kcal:180},
+  {nom:"Pomme de terre (crue)",     portion:235, p:4.7,  g:40.0, l:0.2,  kcal:181},
+  {nom:"Pain blanc",                portion:82,  p:7.4,  g:40.0, l:1.7,  kcal:195},
+  {nom:"Oranges (~3 fruits)",       portion:381, p:3.8,  g:40.0, l:0.4,  kcal:178},
+  {nom:"Huile d'olive (1 c.à.s.)",  portion:10,  p:0,    g:0,    l:10,   kcal:90},
+  {nom:"Noisettes entières",        portion:16,  p:2.4,  g:1.1,  l:10,   kcal:101},
+  {nom:"Avocat",                    portion:67,  p:1.3,  g:1.3,  l:10,   kcal:107},
+  {nom:"Amandes",                   portion:19,  p:4.0,  g:1.0,  l:10,   kcal:112},
+  {nom:"Beurre de cacahuète nat.",  portion:20,  p:5.0,  g:1.4,  l:10,   kcal:116},
+  {nom:"Beurre",                    portion:12,  p:0,    g:0,    l:10,   kcal:90},
+  {nom:"Courgettes (crues)",        portion:200, p:3.4,  g:5.4,  l:0.6,  kcal:40},
+  {nom:"Poivrons rouges (crus)",    portion:200, p:2.8,  g:10.0, l:0.6,  kcal:54},
+  {nom:"Champignons (crus)",        portion:200, p:5.6,  g:4.0,  l:0.6,  kcal:42},
+  {nom:"Chocolat noir 75% (30g)",   portion:30,  p:2,    g:10,   l:12,   kcal:160},
+  {nom:"Barre protéinée",           portion:1,   p:17,   g:15,   l:7.7,  kcal:200},
+  {nom:"Pancake/collation",         portion:1,   p:15,   g:25,   l:5,    kcal:200},
+  {nom:"Verre de vin rouge (150ml)",portion:150, p:0,    g:4,    l:0,    kcal:125},
+  {nom:"Bière pression (25cl)",     portion:250, p:0,    g:10,   l:0,    kcal:115},
+  {nom:"Orange entière (150g)",     portion:150, p:1,    g:16,   l:0,    kcal:70},
+  {nom:"Gâteau (1 part)",           portion:1,   p:5,    g:45,   l:12,   kcal:300},
+  {nom:"Pizza (2 parts)",           portion:1,   p:22,   g:75,   l:22,   kcal:600},
+  {nom:"Repas resto riche",         portion:1,   p:30,   g:60,   l:35,   kcal:700},
+  {nom:"Pancake Tchèque",           portion:1,   p:15.5, g:25,   l:3.5,  kcal:194},
+  {nom:"Porridge Tchèque",          portion:1,   p:17,   g:29,   l:4,    kcal:220},
+  {nom:"Spoon (200g)",              portion:200, p:25,   g:7,    l:0.8,  kcal:134},
+];
+
+// CIQUAL 2025
+const CIQUAL_DB = [
+  {nom:"Blanc de poulet cuit",        portion:100, p:30.9, g:0,    l:1.2,  kcal:136},
+  {nom:"Blanc de poulet cru",         portion:100, p:22.0, g:0,    l:1.0,  kcal:99},
+  {nom:"Escalope de dinde cuite",     portion:100, p:28.5, g:0,    l:1.5,  kcal:128},
+  {nom:"Bœuf haché 5% MG cru",       portion:100, p:20.0, g:0,    l:5.0,  kcal:125},
+  {nom:"Bœuf haché 5% MG cuit",      portion:100, p:26.1, g:0,    l:6.5,  kcal:161},
+  {nom:"Steak de bœuf grillé",       portion:100, p:28.7, g:0,    l:8.8,  kcal:192},
+  {nom:"Filet de porc cuit",          portion:100, p:27.2, g:0,    l:3.5,  kcal:139},
+  {nom:"Jambon blanc (s. couenne)",   portion:100, p:18.4, g:1.0,  l:2.8,  kcal:104},
+  {nom:"Escalope de veau cuite",      portion:100, p:30.7, g:0,    l:2.9,  kcal:147},
+  {nom:"Saumon atlantique cuit",      portion:100, p:25.6, g:0,    l:13.6, kcal:224},
+  {nom:"Cabillaud cuit vapeur",       portion:100, p:20.8, g:0,    l:0.9,  kcal:90},
+  {nom:"Thon au naturel (conserve)",  portion:100, p:23.5, g:0,    l:1.0,  kcal:103},
+  {nom:"Thon à l'huile (égoutté)",    portion:100, p:21.8, g:0,    l:8.2,  kcal:163},
+  {nom:"Sardines à l'huile",          portion:100, p:24.6, g:0,    l:11.0, kcal:200},
+  {nom:"Crevettes cuites",            portion:100, p:20.3, g:0,    l:1.5,  kcal:94},
+  {nom:"Maquereau au four",           portion:100, p:19.0, g:0,    l:13.0, kcal:197},
+  {nom:"Œuf entier dur",              portion:100, p:12.6, g:0.7,  l:10.6, kcal:155},
+  {nom:"Blanc d'œuf cuit",            portion:100, p:11.0, g:0.3,  l:0.2,  kcal:48},
+  {nom:"Fromage blanc 0% MG",         portion:100, p:8.0,  g:3.5,  l:0.1,  kcal:47},
+  {nom:"Fromage blanc protéiné",      portion:200, p:25.0, g:6.0,  l:0.0,  kcal:130},
+  {nom:"Skyr nature (150g)",          portion:150, p:18.0, g:6.0,  l:0.2,  kcal:98},
+  {nom:"Yaourt grec 0% (150g)",       portion:150, p:12.6, g:6.6,  l:0.3,  kcal:81},
+  {nom:"Cottage cheese",              portion:100, p:11.1, g:3.4,  l:4.3,  kcal:97},
+  {nom:"Lait écrémé (250ml)",         portion:250, p:8.8,  g:12.5, l:0.5,  kcal:88},
+  {nom:"Lentilles cuites",            portion:100, p:8.9,  g:17.5, l:0.4,  kcal:116},
+  {nom:"Pois chiches cuits",          portion:100, p:8.9,  g:22.5, l:2.6,  kcal:164},
+  {nom:"Edamame cuit",                portion:100, p:11.9, g:7.6,  l:5.2,  kcal:121},
+  {nom:"Tofu ferme nature",           portion:100, p:8.1,  g:1.5,  l:4.2,  kcal:76},
+  {nom:"Riz basmati cru (50g)",       portion:50,  p:4.0,  g:39.0, l:0.5,  kcal:176},
+  {nom:"Riz blanc cuit (150g)",       portion:150, p:3.6,  g:35.5, l:0.3,  kcal:157},
+  {nom:"Pâtes sèches (75g)",          portion:75,  p:8.9,  g:53.3, l:1.2,  kcal:262},
+  {nom:"Flocons d'avoine (50g)",      portion:50,  p:6.0,  g:30.0, l:3.0,  kcal:171},
+  {nom:"Patate douce cuite (150g)",   portion:150, p:2.1,  g:25.7, l:0.1,  kcal:112},
+  {nom:"Quinoa cuit (150g)",          portion:150, p:6.0,  g:27.8, l:2.6,  kcal:165},
+  {nom:"Pain complet (2 tranches)",   portion:50,  p:4.5,  g:22.0, l:1.5,  kcal:118},
+  {nom:"Whey Isolate 90% (30g)",      portion:30,  p:26.0, g:1.0,  l:0.0,  kcal:108},
+  {nom:"Whey Concentrat 80% (30g)",   portion:30,  p:23.0, g:3.5,  l:1.8,  kcal:122},
+  {nom:"Caséine micelaire (30g)",     portion:30,  p:24.0, g:2.0,  l:1.0,  kcal:113},
+  {nom:"Banane (120g)",               portion:120, p:1.3,  g:26.0, l:0.2,  kcal:107},
+  {nom:"Avocat (100g)",               portion:100, p:2.0,  g:1.8,  l:15.3, kcal:160},
+  {nom:"Amandes (30g)",               portion:30,  p:6.0,  g:3.6,  l:16.0, kcal:180},
+  {nom:"Beurre de cacahuète (30g)",   portion:30,  p:7.5,  g:5.4,  l:15.7, kcal:188},
+  {nom:"Chocolat noir 85% (20g)",     portion:20,  p:2.2,  g:4.6,  l:10.7, kcal:120},
+];
+
+// ══════════════════════════════════════════════════════════════
+//  STATE
+// ══════════════════════════════════════════════════════════════
+let currentSource = 'perso';
+let persoModules = [];
+let editingIdx = null;
+let CFG = { TOL:5, MAXD:3, MAXR:5 };
+
+// ══════════════════════════════════════════════════════════════
+//  ALGORITHME
+//  - tp/tg/tl = null  → macro non contrainte (on l'affiche juste)
+//  - tp/tg/tl = 0     → contrainte strict à 0 (±TOL)
+//  - champ vide       → null
+//  - MAXQ calculé dynamiquement selon la cible (cible/min_contribution + marge)
+// ══════════════════════════════════════════════════════════════
+function solve(targets, ms) {
+  const { tp, tg, tl } = targets;
+  const TOL = CFG.TOL;
+
+  // ── 1. Filtrer les aliments vraiment utiles
+  // Un aliment est utile s'il contribue à AU MOINS UNE macro contrainte
+  // (tp/tg/tl !== null). Les aliments à 0 sur toutes les macros contraintes
+  // (stévia, spray...) sont exclus.
+  const useful = ms.filter(m => {
+    if (tp !== null && m.p > 0.3) return true;
+    if (tg !== null && m.g > 0.3) return true;
+    if (tl !== null && m.l > 0.3) return true;
+    // Si aucune contrainte active → on prend quand même si au moins une macro > 0
+    if (tp === null && tg === null && tl === null) return m.p+m.g+m.l > 0.3;
+    return false;
+  });
+  if (!useful.length) return [];
+
+  // ── 2. MAXQ dynamique : assez pour atteindre la cible avec un seul aliment
+  // Ex: cible 200g prot, meilleure source 30g/portion → MAXQ = ceil(205/30) = 7
+  let maxQ = CFG.MAXQ; // part du réglage utilisateur
+  if (tp !== null) {
+    const bestP = Math.max(...useful.map(m=>m.p), 0.1);
+    maxQ = Math.max(maxQ, Math.ceil((tp + TOL) / bestP) + 1);
+  }
+  if (tg !== null) {
+    const bestG = Math.max(...useful.map(m=>m.g), 0.1);
+    maxQ = Math.max(maxQ, Math.ceil((tg + TOL) / bestG) + 1);
+  }
+  if (tl !== null) {
+    const bestL = Math.max(...useful.map(m=>m.l), 0.1);
+    maxQ = Math.max(maxQ, Math.ceil((tl + TOL) / bestL) + 1);
+  }
+  maxQ = Math.min(maxQ, 25); // cap absolu
+
+  // MAXD dynamique : grandes cibles → autoriser plus d'aliments distincts
+  const bigTarget = Math.max(tp||0, tg||0, tl||0);
+  const dynamicMaxD = bigTarget > 80 ? Math.max(CFG.MAXD, 4) : CFG.MAXD;
+
+  // ── 3. Backtracking
+  const rawResults = [];
+  let iterations = 0;
+  const MAX_ITER = 1500000;
+
+  function withinBounds(sP, sG, sL) {
+    if (tp !== null && Math.abs(sP - tp) > TOL) return false;
+    if (tg !== null && Math.abs(sG - tg) > TOL) return false;
+    if (tl !== null && Math.abs(sL - tl) > TOL) return false;
+    return true;
+  }
+
+  function overShot(sP, sG, sL) {
+    if (tp !== null && sP > tp + TOL) return true;
+    if (tg !== null && sG > tg + TOL) return true;
+    if (tl !== null && sL > tl + TOL) return true;
+    return false;
+  }
+
+  function dfs(startIdx, quantities, sP, sG, sL, distinctCount) {
+    if (++iterations > MAX_ITER) return;
+
+    // Valider le combo courant
+    if (distinctCount > 0 && withinBounds(sP, sG, sL)) {
+      rawResults.push({ qs: [...quantities], sP, sG, sL });
+    }
+
+    if (rawResults.length > CFG.MAXR * 12) return;
+    if (overShot(sP, sG, sL)) return;
+
+    for (let j = startIdx; j < useful.length; j++) {
+      const q = quantities[j];
+      if (q >= maxQ) continue;
+      if (q === 0 && distinctCount >= dynamicMaxD) continue;
+      quantities[j]++;
+      dfs(j, quantities, sP + useful[j].p, sG + useful[j].g, sL + useful[j].l,
+          distinctCount + (q === 0 ? 1 : 0));
+      quantities[j]--;
+    }
+  }
+
+  dfs(0, new Array(useful.length).fill(0), 0, 0, 0, 0);
+
+  // ── 4. Scoring et tri
+  function score(r) {
+    const distinct = r.qs.filter(q=>q>0).length;
+    const total = r.qs.reduce((s,q)=>s+q,0);
+    const err = (tp!==null?Math.abs(r.sP-tp):0)
+              + (tg!==null?Math.abs(r.sG-tg):0)
+              + (tl!==null?Math.abs(r.sL-tl):0);
+    // Priorité: 1. moins d'aliments distincts, 2. moins de portions, 3. erreur minimale
+    return distinct * 10000 + total * 100 + err;
+  }
+  rawResults.sort((a,b) => score(a) - score(b));
+
+  // ── 5. Dédoublonnage fort : signature basée sur les aliments+quantités triés
+  const seen = new Set();
+  const final = [];
+  for (const r of rawResults) {
+    const sig = r.qs
+      .map((q,i) => q>0 ? `${useful[i].nom}×${q}` : '')
+      .filter(Boolean).sort().join('|');
+    if (!seen.has(sig)) {
+      seen.add(sig);
+      final.push({ ...r, modules: useful });
+    }
+    if (final.length >= CFG.MAXR) break;
+  }
+  return final;
+}
+
+// ══════════════════════════════════════════════════════════════
+//  RENDU CARTE — style mockup (anneau SVG + typo bold)
+// ══════════════════════════════════════════════════════════════
+
+// Calcule le score de match en % selon les macros contraintes
+function matchPct(sP, sG, sL, tp, tg, tl, TOL) {
+  // Score = (1 - erreur/cible) × 100, floored at 0
+  // Ex: cible=32, résultat=30, erreur=2 → (1 - 2/32)×100 = 93.75%
+  // Ex: cible=32, résultat=32, erreur=0 → 100%
+  // Si la cible est nulle (non contrainte), on ignore cette macro
+  let total = 0, hit = 0;
+  if (tp !== null && tp > 0) { total++; const e = Math.abs(sP - tp); hit += Math.max(0, 1 - e / tp); }
+  if (tg !== null && tg > 0) { total++; const e = Math.abs(sG - tg); hit += Math.max(0, 1 - e / tg); }
+  if (tl !== null && tl > 0) { total++; const e = Math.abs(sL - tl); hit += Math.max(0, 1 - e / tl); }
+  if (total === 0) return 100;
+  return Math.round((hit / total) * 100 * 4) / 4; // arrondi au 0.25% près
+}
+
+function renderRing(pct, id) {
+  const R = 50, C = 2 * Math.PI * R;
+  const dash = (pct / 100) * C;
+  // Format: show one decimal only if not integer
+  const pctStr = Number.isInteger(pct) ? pct + '%' : pct.toFixed(2).replace(/\.?0+$/, '') + '%';
+  return `
+  <div class="ring-wrap">
+    <svg width="120" height="120" viewBox="0 0 120 120">
+      <circle class="ring-bg" cx="60" cy="60" r="${R}"/>
+      <circle class="ring-fg" id="ring-${id}" cx="60" cy="60" r="${R}"
+        stroke-dasharray="${C.toFixed(2)}"
+        stroke-dashoffset="${C.toFixed(2)}"
+        style="--target-offset:${(C - dash).toFixed(2)}"/>
+    </svg>
+    <div class="ring-label">
+      <span class="ring-match">MATCH</span>
+      <span class="ring-pct">${pctStr}</span>
+    </div>
+  </div>`;
+}
+
+function renderCard(combo, targets, idx) {
+  const { qs, sP, sG, sL, modules: ms } = combo;
+  const { tp, tg, tl } = targets;
+  const TOL = CFG.TOL;
+  const kcal = Math.round(sP * 4 + sG * 4 + sL * 9);
+  const used = qs.map((q, i) => q > 0 ? { m: ms[i], q } : null).filter(Boolean);
+  const pct = matchPct(sP, sG, sL, tp, tg, tl, TOL);
+  const uid = `card${idx}`;
+
+  const ingsHTML = used.map(({ m, q }) => {
+    const k = Math.round((m.p * 4 + m.g * 4 + m.l * 9) * q);
+    const portion = m.portion > 5 ? `${m.portion}g` : '1 unité';
+    return `<div class="res-ing-row">
+      <span class="qty">${q}x</span> ${portion}&nbsp; ${esc(m.nom)} <span class="ing-kcal">− ${k} kcal</span>
+    </div>`;
+  }).join('');
+
+  const delta = (v, t) => {
+    if (t === null) return `<div class="m-nc">info</div>`;
+    const d = +(v - t).toFixed(1);
+    const s = d >= 0 ? '+' : '';
+    const cls = Math.abs(d) <= 2 ? 'dok' : 'dwarn';
+    return `<div class="m-delta ${cls}">${s}${d}g</div>`;
+  };
+
+  return `<div class="res-card" data-idx="${idx}">
+    <div class="res-body">
+      <div class="res-title-row">Combinaison ${idx + 1}</div>
+      <div class="res-hero">
+        ${renderRing(pct, uid)}
+        <div class="res-kcal-wrap">
+          <div class="res-kcal-num">${kcal}</div>
+          <div class="res-kcal-lbl">kcal</div>
+        </div>
+      </div>
+      <div class="res-ing-list">${ingsHTML}</div>
+      <div class="res-macros">
+        <div class="m-col">
+          <div class="m-val">${sP.toFixed(1)}g</div>
+          <div class="m-lbl">Protéines</div>
+          ${delta(sP, tp)}
+        </div>
+        <div class="m-col">
+          <div class="m-val">${sG.toFixed(1)}g</div>
+          <div class="m-lbl">Glucides</div>
+          ${delta(sG, tg)}
+        </div>
+        <div class="m-col">
+          <div class="m-val">${sL.toFixed(1)}g</div>
+          <div class="m-lbl">Lipides</div>
+          ${delta(sL, tl)}
+        </div>
+      </div>
+      ${(tp===null||tg===null||tl===null)?'<p style="font-size:10px;color:var(--text-3);margin-top:10px;text-align:center">Macros sans cible affichées à titre indicatif</p>':''}
+    </div>
+  </div>`;
+}
+
+// Anime les anneaux après rendu
+function animateRings() {
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.ring-fg').forEach(el => {
+      const offset = el.style.getPropertyValue('--target-offset');
+      setTimeout(() => { el.style.strokeDashoffset = offset; }, 60);
+    });
+  });
+}
+
+// ══════════════════════════════════════════════════════════════
+//  GENERATE
+// ══════════════════════════════════════════════════════════════
+async function generate() {
+  const pRaw = document.getElementById('ip').value.trim();
+  const gRaw = document.getElementById('ig').value.trim();
+  const lRaw = document.getElementById('il').value.trim();
+
+  // Vide = null = pas de contrainte
+  const tp = pRaw === '' ? null : parseFloat(pRaw);
+  const tg = gRaw === '' ? null : parseFloat(gRaw);
+  const tl = lRaw === '' ? null : parseFloat(lRaw);
+
+  if (tp === null && tg === null && tl === null) {
+    toast('Saisis au moins une valeur !'); return;
+  }
+
+  const btn = document.getElementById('cta');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spin"></span>';
+  clearResults();
+
+  const ms = getActiveModules();
+  await new Promise(r => setTimeout(r, 60));
+
+  const targets = { tp, tg, tl };
+  const results = solve(targets, ms);
+
+  btn.disabled = false;
+  btn.innerHTML = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>Générer mes repas`;
+
+  if (!results.length) {
+    document.getElementById('empty').classList.remove('hidden');
+    document.getElementById('empty').scrollIntoView({behavior:'smooth',block:'start'});
+    return;
+  }
+
+  const n = results.length;
+  const src = currentSource==='perso'?'⭐ Liste perso':'🏛️ CIQUAL 2025';
+  const contraintes = [tp!==null?`${tp}g P`:null, tg!==null?`${tg}g G`:null, tl!==null?`${tl}g L`:null].filter(Boolean).join(' · ');
+  document.getElementById('res-lbl').textContent = `${n} combo · ${contraintes} · ${src}`;
+  document.getElementById('res-lbl').classList.remove('hidden');
+  document.getElementById('results-wrap').innerHTML = results.map((c,i)=>renderCard(c, targets, i)).join('');
+  document.getElementById('results-wrap').scrollIntoView({behavior:'smooth',block:'start'});
+  animateRings();
+}
+
+function clearResults() {
+  document.getElementById('results-wrap').innerHTML='';
+  document.getElementById('res-lbl').classList.add('hidden');
+  document.getElementById('empty').classList.add('hidden');
+}
+
+// ══════════════════════════════════════════════════════════════
+//  SOURCE
+// ══════════════════════════════════════════════════════════════
+function switchSource(src) {
+  currentSource = src;
+  document.getElementById('src-perso').classList.toggle('active', src==='perso');
+  document.getElementById('src-ciqual').classList.toggle('active', src==='ciqual');
+  document.getElementById('gear-btn').classList.toggle('hidden', src!=='perso');
+  document.getElementById('sync-status-wrap').classList.toggle('hidden', src!=='perso');
+  clearResults();
+}
+function getActiveModules() {
+  return currentSource==='perso' ? persoModules : CIQUAL_DB;
+}
+
+// ══════════════════════════════════════════════════════════════
+//  GOOGLE SHEET — LECTURE CSV
+// ══════════════════════════════════════════════════════════════
+async function loadFromSheet() {
+  if (!CONFIG.SHEET_CSV_URL) {
+    persoModules = loadFromLocalStorage();
+    setSyncStatus('nosheet', `${persoModules.length} alim. · local`);
+    return;
+  }
+  setSyncStatus('loading', 'Chargement…');
+  try {
+    const data = await new Promise((resolve, reject) => {
+      Papa.parse(CONFIG.SHEET_CSV_URL, {
+        download:true, header:true, skipEmptyLines:true,
+        complete: r => {
+          const d = r.data.map(row => ({
+            nom:    (row['Nom']||row['nom']||'').trim(),
+            portion:parseFloat(row['Portion']||row['portion']||100),
+            p:      parseFloat(row['Proteines']||row['proteines']||0),
+            g:      parseFloat(row['Glucides']||row['glucides']||0),
+            l:      parseFloat(row['Lipides']||row['lipides']||0),
+            kcal:   parseFloat(row['Kcal']||row['kcal']||0),
+          })).filter(m => m.nom);
+          resolve(d);
+        },
+        error: reject
+      });
+    });
+    persoModules = data;
+    saveToLocalStorage(data);
+    setSyncStatus('ok', `${data.length} alim. · Sheet ✓`);
+  } catch(e) {
+    persoModules = loadFromLocalStorage();
+    setSyncStatus('error', `Hors ligne · ${persoModules.length} en cache`);
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+//  GOOGLE APPS SCRIPT — ÉCRITURE (iPhone Safari compatible)
+//
+//  Stratégie "replace_all" : on envoie TOUTE la liste à chaque fois.
+//  Plus simple et fiable que des updates/deletes par index.
+//
+//  Safari iPhone bloque les requêtes CORS avec preflight (POST/headers).
+//  Solution : GET + données encodées en base64 dans l'URL.
+//  mode:'no-cors' évite l'erreur mais rend la réponse opaque → on
+//  suppose que ça a marché si pas d'exception réseau.
+// ══════════════════════════════════════════════════════════════
+async function callAppsScript(action, payload) {
+  if (!CONFIG.APPS_SCRIPT_URL) return false;
+  try {
+    // Encode en base64 UTF-8 pour gérer les accents (é, è, ç, œ...)
+    const json = JSON.stringify({ action, ...payload });
+    const b64 = btoa(unescape(encodeURIComponent(json)));
+    const url = CONFIG.APPS_SCRIPT_URL + '?d=' + encodeURIComponent(b64);
+
+    // Tentative 1 : fetch normal (donne une réponse lisible)
+    try {
+      const res = await fetch(url, { method: 'GET' });
+      if (res.ok) return true;
+    } catch(_) {}
+
+    // Tentative 2 : no-cors (Safari iPhone — réponse opaque mais la requête passe)
+    await fetch(url, { method: 'GET', mode: 'no-cors' });
+    return true;
+  } catch(e) {
+    console.warn('Apps Script unreachable:', e);
+    return false;
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+//  LOCAL STORAGE
+// ══════════════════════════════════════════════════════════════
+function saveToLocalStorage(list) {
+  try { localStorage.setItem('nb_perso_v3', JSON.stringify(list)); } catch(e) {}
+}
+function loadFromLocalStorage() {
+  try {
+    const raw = localStorage.getItem('nb_perso_v3');
+    if (raw) { const p=JSON.parse(raw); if(Array.isArray(p)&&p.length) return p; }
+  } catch(e) {}
+  return [...PERSO_DEFAULT];
+}
+
+// ══════════════════════════════════════════════════════════════
+//  SYNC STATUS
+// ══════════════════════════════════════════════════════════════
+function setSyncStatus(type, txt) {
+  document.getElementById('sync-dot').className = 'sync-indicator '+type;
+  document.getElementById('sync-txt').textContent = txt;
+}
+
+// ══════════════════════════════════════════════════════════════
+//  MODAL LISTE PERSO
+// ══════════════════════════════════════════════════════════════
+function openModal() {
+  editingIdx = null;
+  renderModal();
+  document.getElementById('modal-overlay').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal-overlay').classList.add('hidden');
+  document.body.style.overflow = '';
+  editingIdx = null;
+}
+function closeModalOutside(e) {
+  if (e.target===document.getElementById('modal-overlay')) closeModal();
+}
+async function reloadFromSheet() {
+  await loadFromSheet();
+  renderModal();
+  toast('Liste rechargée ✓');
+}
+
+function renderModal() {
+  const hasSheet = !!CONFIG.SHEET_CSV_URL;
+  document.getElementById('modal-subtitle').textContent =
+    hasSheet
+      ? `${persoModules.length} aliments · synchronisé avec Google Sheet`
+      : `${persoModules.length} aliments · stockage local`;
+
+  let html = '';
+
+  if (!hasSheet) {
+    html += `<div class="sync-banner nosheet">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
+      Mode local · Les modifs sont sauvées sur cet iPhone uniquement
+    </div>`;
+  }
+
+  persoModules.forEach((m,i) => {
+    if (editingIdx === i) {
+      html += `<div class="ingr-item editing">
+        <div style="flex:1">
+          <div class="form-grid" style="gap:6px;margin-bottom:8px">
+            <div class="form-field span2"><label>Nom</label><input id="e-nom" value="${esc(m.nom)}"/></div>
+            <div class="form-field"><label>Portion (g)</label><input id="e-por" type="number" value="${m.portion}"/></div>
+            <div class="form-field"><label>Protéines</label><input id="e-p" type="number" step="0.1" value="${m.p}"/></div>
+            <div class="form-field"><label>Glucides</label><input id="e-g" type="number" step="0.1" value="${m.g}"/></div>
+            <div class="form-field"><label>Lipides</label><input id="e-l" type="number" step="0.1" value="${m.l}"/></div>
+            <div class="form-field"><label>Kcal</label><input id="e-k" type="number" value="${m.kcal}"/></div>
+          </div>
+          <div style="display:flex;gap:6px">
+            <button class="btn-primary" style="flex:2;padding:10px;font-size:12px" onclick="saveEdit(${i})">✓ Enregistrer</button>
+            <button class="btn-secondary" style="flex:1;padding:10px;font-size:12px" onclick="cancelEdit()">Annuler</button>
+          </div>
+        </div>
+      </div>`;
+    } else {
+      html += `<div class="ingr-item">
+        <div class="ingr-info">
+          <div class="ingr-name">${esc(m.nom)}</div>
+          <div class="ingr-macros">${m.portion}g/portion · ${m.p}P · ${m.g}G · ${m.l}L · ${m.kcal}kcal</div>
+        </div>
+        <button class="ingr-edit-btn" onclick="startEdit(${i})">✏️</button>
+        <button class="ingr-del-btn" onclick="deleteItem(${i})">🗑</button>
+      </div>`;
+    }
+  });
+
+  html += `<div class="add-form">
+    <h3>➕ Ajouter un aliment</h3>
+    <div class="form-grid">
+      <div class="form-field span2"><label>Nom</label><input id="a-nom" placeholder="Ex: Steak de bœuf"/></div>
+      <div class="form-field"><label>Portion (g)</label><input id="a-por" type="number" placeholder="100"/></div>
+      <div class="form-field"><label>Protéines (g)</label><input id="a-p" type="number" step="0.1" placeholder="0"/></div>
+      <div class="form-field"><label>Glucides (g)</label><input id="a-g" type="number" step="0.1" placeholder="0"/></div>
+      <div class="form-field"><label>Lipides (g)</label><input id="a-l" type="number" step="0.1" placeholder="0"/></div>
+      <div class="form-field"><label>Kcal</label><input id="a-k" type="number" placeholder="0"/></div>
+    </div>
+    <button class="btn-add-item" id="btn-add" onclick="addItem()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      Ajouter à ma liste
+    </button>
+  </div>`;
+
+  document.getElementById('modal-body').innerHTML = html;
+}
+
+function startEdit(i) { editingIdx=i; renderModal(); setTimeout(()=>{ const items=document.querySelectorAll('.ingr-item'); if(items[i]) items[i].scrollIntoView({behavior:'smooth',block:'center'}); },50); }
+function cancelEdit() { editingIdx=null; renderModal(); }
+
+async function saveEdit(i) {
+  const nom = document.getElementById('e-nom').value.trim();
+  if (!nom) return;
+  const updated = {
+    nom,
+    portion: parseFloat(document.getElementById('e-por').value)||100,
+    p: parseFloat(document.getElementById('e-p').value)||0,
+    g: parseFloat(document.getElementById('e-g').value)||0,
+    l: parseFloat(document.getElementById('e-l').value)||0,
+    kcal: parseFloat(document.getElementById('e-k').value)||0,
+  };
+  persoModules[i] = updated;
+  editingIdx = null;
+  saveToLocalStorage(persoModules);
+  renderModal();
+  toast('Modification sauvegardée ✓');
+
+  if (CONFIG.APPS_SCRIPT_URL) {
+    setSyncStatus('loading', 'Sync Sheet…');
+    // Envoyer toute la liste pour reconstruire (plus fiable que row update)
+    const ok = await callAppsScript('replace_all', { items: persoModules });
+    setSyncStatus(ok?'ok':'error', ok?`${persoModules.length} alim. · Sheet ✓`:'Sauvé local · Sheet KO');
+  }
+}
+
+async function deleteItem(i) {
+  if (!confirm(`Supprimer "${persoModules[i].nom}" ?`)) return;
+  const nom = persoModules[i].nom;
+  persoModules.splice(i, 1);
+  if (editingIdx===i) editingIdx=null;
+  saveToLocalStorage(persoModules);
+  renderModal();
+  toast(`"${nom}" supprimé`);
+
+  if (CONFIG.APPS_SCRIPT_URL) {
+    setSyncStatus('loading', 'Sync Sheet…');
+    const ok = await callAppsScript('replace_all', { items: persoModules });
+    setSyncStatus(ok?'ok':'error', ok?`${persoModules.length} alim. · Sheet ✓`:'Sauvé local · Sheet KO');
+  }
+}
+
+async function addItem() {
+  const nom = document.getElementById('a-nom').value.trim();
+  if (!nom) { toast('Saisis un nom !'); return; }
+  const item = {
+    nom,
+    portion: parseFloat(document.getElementById('a-por').value)||100,
+    p: parseFloat(document.getElementById('a-p').value)||0,
+    g: parseFloat(document.getElementById('a-g').value)||0,
+    l: parseFloat(document.getElementById('a-l').value)||0,
+    kcal: parseFloat(document.getElementById('a-k').value)||0,
+  };
+  persoModules.push(item);
+  saveToLocalStorage(persoModules);
+  toast(`"${nom}" ajouté ✓`);
+
+  if (CONFIG.APPS_SCRIPT_URL) {
+    setSyncStatus('loading', 'Sync Sheet…');
+    const ok = await callAppsScript('replace_all', { items: persoModules });
+    setSyncStatus(ok?'ok':'error', ok?`${persoModules.length} alim. · Sheet ✓`:'Sauvé local · Sheet KO');
+  }
+  renderModal();
+  document.getElementById('modal-body').scrollTop = 99999;
+}
+
+// ══════════════════════════════════════════════════════════════
+//  UTILS
+// ══════════════════════════════════════════════════════════════
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function toggleAdv(){document.getElementById('adv-panel').classList.toggle('hidden')}
+const tolLimits={t:[1,20],d:[1,5]};
+function changeTol(key,d){
+  const el=document.getElementById(`tol-${key}`);
+  let v=Math.max(tolLimits[key][0],Math.min(tolLimits[key][1],parseInt(el.textContent)+d));
+  el.textContent=v;
+  if(key==='t') CFG.TOL=v;
+  else if(key==='d') CFG.MAXD=v;
+}
+let toastTimer;
+function toast(msg){
+  const el=document.getElementById('toast');
+  el.textContent=msg; el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>el.classList.remove('show'),2800);
+}
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&document.getElementById('modal-overlay').classList.contains('hidden'))generate();});
+
+// BOOT
+(async()=>{ await loadFromSheet(); })();
+</script>
+</body>
+</html>
