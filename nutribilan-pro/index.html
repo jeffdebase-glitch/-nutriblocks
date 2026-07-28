@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f2937">
+  <meta name="description" content="Outil dynamique de bilan diététique, enquête alimentaire et répartition en équivalents.">
+  <title>NutriBilan Pro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">NB</div>
+        <div><h1>NutriBilan Pro</h1><p>Profil · enquête alimentaire · équivalents · bilan</p></div>
+      </div>
+      <div class="actions">
+        <button class="btn" id="saveBtn">Enregistrer</button>
+        <button class="btn" id="exportBtn">Exporter JSON</button>
+        <button class="btn" id="importBtn">Importer</button>
+        <button class="btn" id="printBtn">Imprimer le bilan</button>
+        <button class="btn primary" id="csvBtn">Exporter CSV</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs-wrap" aria-label="Modules">
+    <div class="tabs">
+      <button class="tab active" data-tab="profil">1. Profil</button>
+      <button class="tab" data-tab="enquete">2. Enquête</button>
+      <button class="tab" data-tab="repartition">3. Répartition</button>
+      <button class="tab" data-tab="bilan">4. Bilan</button>
+      <button class="tab" data-tab="base">5. Base aliments</button>
+      <button class="tab" data-tab="aide">Aide & sources</button>
+    </div>
+  </nav>
+
+  <main>
+    <section id="profil" class="panel active">
+      <div class="section-head"><div><h2>Profil client et métabolisme</h2><p>Les calculs se mettent à jour immédiatement.</p></div></div>
+      <div class="grid two">
+        <div class="card">
+          <h3>Données du client</h3>
+          <div class="form-grid" id="profileForm">
+            <div class="field full"><label for="clientName">Nom / dossier</label><input id="clientName" data-profile="name" type="text"></div>
+            <div class="field"><label for="sex">Sexe biologique utilisé par l'équation</label><select id="sex" data-profile="sex"><option value="Femme">Femme</option><option value="Homme">Homme</option></select></div>
+            <div class="field"><label for="age">Âge (ans)</label><input id="age" data-profile="age" type="number" min="18" max="100" step="1"></div>
+            <div class="field"><label for="height">Taille (cm)</label><input id="height" data-profile="height" type="number" min="130" max="230" step="0.1"></div>
+            <div class="field"><label for="weight">Poids actuel (kg)</label><input id="weight" data-profile="weight" type="number" min="35" max="300" step="0.1"></div>
+            <div class="field"><label for="targetWeight">Poids cible (kg)</label><input id="targetWeight" data-profile="targetWeight" type="number" min="35" max="300" step="0.1"></div>
+            <div class="field"><label for="goal">Objectif</label><select id="goal" data-profile="goal"><option>Perte de poids</option><option>Maintien</option><option>Prise de masse</option></select></div>
+            <div class="field"><label for="formula">Formule de métabolisme</label><select id="formula" data-profile="formula"><option value="henry">Henry (2005), poids + taille</option><option value="harris">Harris-Benedict révisée (1984)</option><option value="schofield">Schofield (1985), poids</option><option value="black">Black et al. (1996)</option></select></div>
+            <div class="field"><label for="pal">NAP / PAL</label><input id="pal" data-profile="pal" type="number" min="1.2" max="2.4" step="0.025"><span class="input-help">DEJ = métabolisme de base × NAP.</span></div>
+            <div class="field"><label for="dejAdjust">Ajustement de la DEJ (%)</label><input id="dejAdjust" data-profile="dejAdjust" data-percent type="number" min="-50" max="50" step="1"></div>
+            <div class="field"><label for="surveyAdjust">Ajustement de l'enquête (%)</label><input id="surveyAdjust" data-profile="surveyAdjust" data-percent type="number" min="-50" max="50" step="1"></div>
+            <div class="field"><label for="dejWeight">Poids donné à la DEJ (%)</label><input id="dejWeight" data-profile="dejWeight" data-percent type="number" min="0" max="100" step="5"><span class="input-help">Le complément est donné à l'enquête.</span></div>
+            <div class="field"><label for="proteinTarget">Cible protéique (g/kg)</label><input id="proteinTarget" data-profile="proteinTarget" type="number" min="0.5" max="3.5" step="0.05"></div>
+          </div>
+        </div>
+        <div>
+          <div class="grid two" id="profileMetrics"></div>
+          <div class="card" style="margin-top:16px">
+            <h3>Repères NAP</h3>
+            <div class="kpi-line"><span>Sédentaire</span><strong>1,20</strong></div>
+            <div class="kpi-line"><span>Activité légère</span><strong>1,375</strong></div>
+            <div class="kpi-line"><span>Activité modérée</span><strong>1,55</strong></div>
+            <div class="kpi-line"><span>Activité élevée</span><strong>1,725</strong></div>
+            <div class="kpi-line"><span>Très élevée</span><strong>1,90+</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:16px">La dépense énergétique est une estimation. La calorimétrie indirecte reste la méthode de référence pour mesurer le métabolisme au repos.</div>
+    </section>
+
+    <section id="enquete" class="panel">
+      <div class="section-head"><div><h2>Enquête alimentaire</h2><p>Saisir les aliments réellement consommés et leur quantité.</p></div><button class="btn light no-print" id="addSurveyRow">+ Ajouter une ligne</button></div>
+      <div class="summary-strip" id="surveySummary"></div>
+      <div class="card">
+        <div class="toolbar no-print">
+          <button class="btn light small" id="addSurveyRow2">+ Ligne</button>
+          <button class="btn light small" id="addExampleDay">Charger l'exemple</button>
+          <button class="btn danger small" id="clearSurvey">Vider l'enquête</button>
+        </div>
+        <div class="table-wrap">
+          <table id="surveyTable">
+            <thead><tr><th>#</th><th>Repas</th><th>Aliment</th><th class="num">Quantité</th><th class="num">Portions</th><th class="num">kcal</th><th class="num">Prot.</th><th class="num">Lip.</th><th class="num">Gluc.</th><th>Catégorie</th><th class="no-print">Action</th></tr></thead>
+            <tbody></tbody>
+            <tfoot><tr class="sticky-total"><td colspan="5">TOTAL JOUR</td><td class="num" id="surveyKcalTotal">0</td><td class="num" id="surveyPTotal">0</td><td class="num" id="surveyLTotal">0</td><td class="num" id="surveyCTotal">0</td><td colspan="2"></td></tr></tfoot>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="repartition" class="panel">
+      <div class="section-head"><div><h2>Répartition en portions / équivalents</h2><p>Distribuer les équivalents entre les repas pour construire la journée cible.</p></div><button class="btn danger no-print" id="clearDistribution">Réinitialiser les portions</button></div>
+      <div class="summary-strip" id="distributionSummary"></div>
+      <div class="card">
+        <div class="switchline no-print" style="margin-bottom:12px"><input type="checkbox" id="editEquivs"><label for="editEquivs">Autoriser la modification des valeurs moyennes par portion</label></div>
+        <div class="table-wrap">
+          <table id="equivTable">
+            <thead><tr><th>Équivalent</th><th>Exemples</th><th class="num">g</th><th class="num">kcal</th><th class="num">P</th><th class="num">L</th><th class="num">G</th><th class="num meal-pdj">Petit-déj.</th><th class="num meal-dej">Déjeuner</th><th class="num meal-col">Collation</th><th class="num meal-din">Dîner</th><th class="num">Total portions</th><th class="num">kcal</th></tr></thead>
+            <tbody></tbody>
+            <tfoot><tr class="sticky-total"><td colspan="11">TOTAL JOUR</td><td class="num" id="distPortions">0</td><td class="num" id="distKcal">0</td></tr></tfoot>
+          </table>
+        </div>
+      </div>
+      <div class="card" style="margin-top:16px"><h3>Répartition par repas</h3><div id="mealBreakdown"></div></div>
+    </section>
+
+    <section id="bilan" class="panel">
+      <div class="section-head"><div><h2>Bilan nutritionnel</h2><p>Synthèse calculée à partir de la répartition en équivalents.</p></div><button class="btn light no-print" id="printBtn2">Imprimer</button></div>
+      <div class="summary-strip" id="bilanSummary"></div>
+      <div class="grid two">
+        <div class="card"><h3>Répartition énergétique des macronutriments</h3><div class="donut-wrap"><div class="donut" id="macroDonut"><div class="donut-center"><strong id="macroEnergy">0</strong><span>kcal macros</span></div></div><div class="legend" id="macroLegend"></div></div></div>
+        <div class="card"><h3>Contrôle des plages</h3><div id="macroControls"></div></div>
+      </div>
+      <div class="grid two" style="margin-top:16px">
+        <div class="card"><h3>Références personnalisables</h3><div class="form-grid" id="targetForm">
+          <div class="field"><label>Protéines min. (%)</label><input type="number" data-target="pMin" min="0" max="100" step="1"></div>
+          <div class="field"><label>Protéines max. (%)</label><input type="number" data-target="pMax" min="0" max="100" step="1"></div>
+          <div class="field"><label>Lipides min. (%)</label><input type="number" data-target="lMin" min="0" max="100" step="1"></div>
+          <div class="field"><label>Lipides max. (%)</label><input type="number" data-target="lMax" min="0" max="100" step="1"></div>
+          <div class="field"><label>Glucides min. (%)</label><input type="number" data-target="cMin" min="0" max="100" step="1"></div>
+          <div class="field"><label>Glucides max. (%)</label><input type="number" data-target="cMax" min="0" max="100" step="1"></div>
+        </div></div>
+        <div class="card"><h3>Contrôles complémentaires</h3><div id="secondaryChecks"></div></div>
+      </div>
+      <p class="footer-note">Les pourcentages sont calculés sur l'énergie théorique des protéines (4 kcal/g), lipides (9 kcal/g) et glucides (4 kcal/g). Un écart avec les kcal des aliments est possible à cause des fibres, alcools, polyols et arrondis.</p>
+    </section>
+
+    <section id="base" class="panel">
+      <div class="section-head"><div><h2>Base alimentaire</h2><p>Valeurs moyennes par 100 g ou 100 ml. Ajouter une fiche personnalisée pour un produit industriel précis.</p></div></div>
+      <div class="grid two">
+        <div class="card">
+          <h3>Ajouter un aliment personnalisé</h3>
+          <div class="form-grid" id="customFoodForm">
+            <div class="field"><label for="cfName">Nom</label><input id="cfName" type="text"></div>
+            <div class="field"><label for="cfCategory">Catégorie</label><input id="cfCategory" type="text"></div>
+            <div class="field"><label for="cfPortion">Portion de référence (g/ml)</label><input id="cfPortion" type="number" min="1" step="1" value="100"></div>
+            <div class="field"><label for="cfKcal">kcal / 100</label><input id="cfKcal" type="number" min="0" step="0.1"></div>
+            <div class="field"><label for="cfP">Protéines / 100</label><input id="cfP" type="number" min="0" step="0.1"></div>
+            <div class="field"><label for="cfL">Lipides / 100</label><input id="cfL" type="number" min="0" step="0.1"></div>
+            <div class="field"><label for="cfC">Glucides / 100</label><input id="cfC" type="number" min="0" step="0.1"></div>
+            <div class="field" style="justify-content:end"><button class="btn primary" id="addCustomFood" type="button">Ajouter à la base</button></div>
+          </div>
+        </div>
+        <div class="card"><h3>Règle d'utilisation</h3><p>Pour un produit emballé, recopier en priorité les valeurs de son étiquette. Les valeurs intégrées sont des moyennes pédagogiques arrondies et peuvent varier selon la marque, la recette et la cuisson.</p><div class="callout">Les aliments personnalisés sont conservés dans le navigateur et inclus dans l'export JSON.</div></div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <div class="toolbar"><input class="search" id="foodSearch" type="search" placeholder="Rechercher un aliment ou une catégorie"><span id="foodCount" class="badge good"></span></div>
+        <div class="table-wrap"><table id="foodTable"><thead><tr><th>Aliment</th><th>Catégorie</th><th class="num">Portion réf.</th><th class="num">kcal</th><th class="num">P</th><th class="num">L</th><th class="num">G</th><th>Type</th><th class="no-print">Action</th></tr></thead><tbody></tbody></table></div>
+      </div>
+    </section>
+
+    <section id="aide" class="panel">
+      <div class="section-head"><div><h2>Aide, méthode et hébergement</h2><p>L'application fonctionne sans serveur et enregistre les données dans le navigateur.</p></div></div>
+      <div class="grid two">
+        <div class="card"><h3>Ordre de travail</h3><ol><li>Compléter le profil.</li><li>Saisir une journée représentative dans l'enquête.</li><li>Contrôler la cible de décision.</li><li>Construire la répartition en équivalents.</li><li>Valider le bilan et exporter les données.</li></ol></div>
+        <div class="card"><h3>Publication sur GitHub Pages</h3><ol><li>Créer un dépôt GitHub.</li><li>Déposer le fichier <strong>index.html</strong> à la racine.</li><li>Ouvrir <strong>Settings → Pages</strong>.</li><li>Choisir <strong>Deploy from a branch</strong>, branche <strong>main</strong>, dossier <strong>/(root)</strong>.</li><li>Enregistrer puis ouvrir l'adresse fournie par GitHub.</li></ol><p class="notice">Aucune compilation ni dépendance n'est nécessaire.</p></div>
+      </div>
+      <div class="grid two" style="margin-top:16px">
+        <div class="card"><h3>Formules intégrées</h3><div class="formula-box">DEJ = Métabolisme de base × NAP<br>Cible DEJ = DEJ × (1 + ajustement)<br>Cible enquête = Enquête × (1 + ajustement)<br>Cible décision = cible DEJ × poids DEJ + cible enquête × (1 − poids DEJ)</div></div>
+        <div class="card"><h3>Limites</h3><p>Outil destiné à l'éducation nutritionnelle et à la préparation d'un plan. Il ne constitue pas un diagnostic ni une prescription médicale. Les situations cliniques, la grossesse, la dénutrition et les troubles du comportement alimentaire nécessitent une prise en charge professionnelle.</p></div>
+      </div>
+      <div class="card" style="margin-top:16px"><h3>Sources méthodologiques</h3><ul class="source-list"><li>Henry CJK, 2005 — équations prédictives du métabolisme basal.</li><li>Schofield WN, 1985 — équations de métabolisme basal par âge et sexe.</li><li>Roza & Shizgal, 1984 — révision de l'équation Harris-Benedict.</li><li>Anses — Table Ciqual et repères de répartition des macronutriments.</li><li>OMS — classification de l'IMC chez l'adulte.</li></ul></div>
+      <div class="card no-print" style="margin-top:16px"><h3>Gestion des données</h3><div class="toolbar"><button class="btn light" id="saveBtn2">Enregistrer maintenant</button><button class="btn light" id="exportBtn2">Exporter JSON</button><button class="btn light" id="importBtn2">Importer JSON</button><button class="btn danger" id="resetAll">Effacer toutes les données</button></div><p class="notice">Le stockage local est propre à cet appareil et à ce navigateur. Exporter un fichier JSON pour transférer ou sauvegarder un dossier.</p></div>
+    </section>
+  </main>
+</div>
+<input id="importFile" type="file" accept="application/json,.json" class="hidden">
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
